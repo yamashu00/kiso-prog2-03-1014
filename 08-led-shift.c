@@ -24,6 +24,7 @@ void show(unsigned char leds)
 int main(void)
 {
     unsigned char leds = 0;
+    int number;
 
     leds = leds | (1 << 0);    /* 0番目を点ける */
     show(leds);
@@ -31,5 +32,25 @@ int main(void)
     show(leds);
     leds = leds & ~(1 << 0);   /* 0番目を消す */
     show(leds);
+
+    leds = leds | (1 << 7);    /* 7番目を点ける */
+    show(leds);
+
+    printf("点けるLEDの番号 (0-7)=");
+    if (scanf("%d", &number) != 1 || number < 0 || number > 7) {
+        printf("0から7までの整数を入力してください。\n");
+        return 1;
+    }
+    leds = leds | (1 << number);
+    show(leds);
+
+    printf("反転するLEDの番号 (0-7)=");
+    if (scanf("%d", &number) != 1 || number < 0 || number > 7) {
+        printf("0から7までの整数を入力してください。\n");
+        return 1;
+    }
+    leds = leds ^ (1 << number);
+    show(leds);
+
     return 0;
 }
