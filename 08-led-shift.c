@@ -31,5 +31,7 @@ int main(void)
     show(leds);
     leds = leds & ~(1 << 0);   /* 0番目を消す */
     show(leds);
+    leds = leds | (1 << 7);    
+    show(leds);
     return 0;
 }
