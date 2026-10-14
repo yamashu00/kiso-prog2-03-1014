@@ -7,6 +7,7 @@
 //   ① 上位4ビット（左の4つ）だけを取り出すには、filter をどう変える？ 予想してから確かめる
 //   ② filter を変えて、一番右のビットだけを取り出す。偶数・奇数の判定に使えるか考える
 // ==================================================
+
 #include <stdio.h>
 
 int main(void)
@@ -14,6 +15,23 @@ int main(void)
     int a = 0b01101100;
     int filter = 0b00001111;
 
-    printf("%d\n", a & filter);   /* 2進数で0000 1100 */
+    // 元のコード：下位4ビットを取り出す
+    printf("%d\n", a & filter);
+
+    // ① 上位4ビットを取り出す
+    filter = 0b11110000;
+    printf("%d\n", a & filter);
+
+    // ② 一番右のビットだけを取り出す
+    filter = 0b00000001;
+    printf("%d\n", a & filter);
+
+    // 偶数・奇数の判定
+    if (a & 1) {
+        printf("奇数\n");
+    } else {
+        printf("偶数\n");
+    }
+
     return 0;
 }

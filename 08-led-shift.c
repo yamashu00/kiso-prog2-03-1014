@@ -24,12 +24,35 @@ void show(unsigned char leds)
 int main(void)
 {
     unsigned char leds = 0;
+    int n;
 
-    leds = leds | (1 << 0);    /* 0番目を点ける */
+    // 最初の3つ
+    leds = leds | (1 << 0);
     show(leds);
-    leds = leds | (1 << 2);    /* 2番目を点ける */
+
+    leds = leds | (1 << 2);
     show(leds);
-    leds = leds & ~(1 << 0);   /* 0番目を消す */
+
+    leds = leds & ~(1 << 0);
     show(leds);
+
+    // ① 7番目のLEDを点ける
+    leds = leds | (1 << 7);
+    show(leds);
+
+    // ② scanfで番号を入力して点ける
+    printf("点けたいLEDの番号（0〜7）: ");
+    if (scanf("%d", &n) != 1 || n < 0 || n > 7) {
+        printf("0〜7の番号を入力してください。\n");
+        return 1;
+    }
+
+    leds = leds | (1 << n);
+    show(leds);
+
+    // ③ n番目のLEDを反転する
+    leds = leds ^ (1 << n);
+    show(leds);
+
     return 0;
 }
