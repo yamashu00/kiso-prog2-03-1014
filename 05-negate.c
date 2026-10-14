@@ -19,7 +19,7 @@ int main(void)
     printf("整数=");
     scanf("%d", &num);
 
-    inverse_num = 0;   /* ここを書き換える */
+    inverse_num = ~num + 1;   /* 2の補数で正負を逆転する */
 
     printf("正負逆転した値は%dです。\n", inverse_num);
     return 0;
