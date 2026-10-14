@@ -12,10 +12,11 @@
 
 int main(void)
 {
-    int a = 0b00000011;   /* 10進数で3 */
-
-    printf("%d\n", a << 1);
-    printf("%d\n", a << 2);
-    printf("%d\n", a << 3);
+    int a;
+    
+    printf("整数=");
+    scanf("%d", &a);
+    
+    printf("8倍した値は%dです。\n", a << 3);
     return 0;
 }
