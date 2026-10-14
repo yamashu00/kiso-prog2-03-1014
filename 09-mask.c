@@ -12,7 +12,7 @@
 int main(void)
 {
     int a = 0b01101100;
-    int filter = 0b00001111;
+    int filter = 0b00000001;
 
     printf("%d\n", a & filter);   /* 2進数で0000 1100 */
     return 0;
