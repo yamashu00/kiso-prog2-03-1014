@@ -24,12 +24,13 @@ void show(unsigned char leds)
 int main(void)
 {
     unsigned char leds = 0;
+    int led_number;
+    while (1) {
+        show(leds);
+        printf("点灯させたいLEDの番号=");
+        scanf("%d", &led_number);
 
-    leds = leds | (1 << 0);    /* 0番目を点ける */
-    show(leds);
-    leds = leds | (1 << 2);    /* 2番目を点ける */
-    show(leds);
-    leds = leds & ~(1 << 0);   /* 0番目を消す */
-    show(leds);
+        leds = leds ^ (1 << led_number);    /* 指定された番目を反転する */
+    }
     return 0;
 }

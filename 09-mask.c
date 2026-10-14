@@ -12,8 +12,12 @@
 int main(void)
 {
     int a = 0b01101100;
-    int filter = 0b00001111;
+    int filter = 0b00000001;   /* 一番右のビットだけを取り出すマスク */
 
-    printf("%d\n", a & filter);   /* 2進数で0000 1100 */
+    if ((a & filter) == 0) {
+        printf("偶数です。\n");
+    } else {
+        printf("奇数です。\n");
+    }
     return 0;
 }
