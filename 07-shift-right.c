@@ -11,9 +11,8 @@
 
 int main(void)
 {
-    signed char s = -4;      /* 1111 1100 */
-    unsigned char u = 252;   /* 1111 1100 */
+    signed char s = -5;
 
-    printf("%d %d\n", s >> 2, u >> 2);
+    printf("%d %d\n", s >> 1, s / 2);
     return 0;
 }

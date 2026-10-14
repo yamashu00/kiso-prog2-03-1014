@@ -12,10 +12,12 @@
 
 int main(void)
 {
-    int a = 0b00000011;   /* 10進数で3 */
-    int b = 0b00000110;   /* 10進数で6 */
+    int a = 0b00000100;   /* 10進数で3 */
+    int b = 0b00000111;   /* 10進数で6 */
     int c = a & b;
+    int d = ~a;
 
     printf("%d\n", c);
+    printf("%d\n", d);
     return 0;
 }

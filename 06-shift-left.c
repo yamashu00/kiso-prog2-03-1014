@@ -12,10 +12,11 @@
 
 int main(void)
 {
-    int a = 0b00000011;   /* 10進数で3 */
+    int a;
 
-    printf("%d\n", a << 1);
-    printf("%d\n", a << 2);
+    printf("整数=");
+    scanf("%d", &a);
+
     printf("%d\n", a << 3);
     return 0;
 }
