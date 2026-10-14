@@ -15,7 +15,8 @@
 
 void show(unsigned char leds)
 {
-    for (int i = 7; i >= 0; i--) {
+    for (int i = 7; i >= 0; i--)
+    {
         printf("%s", (leds & (1 << i)) ? "●" : "○");
     }
     printf("\n");
@@ -24,12 +25,38 @@ void show(unsigned char leds)
 int main(void)
 {
     unsigned char leds = 0;
+    int n;
 
-    leds = leds | (1 << 0);    /* 0番目を点ける */
+    leds = leds | (1 << 0);
     show(leds);
-    leds = leds | (1 << 2);    /* 2番目を点ける */
+
+    leds = leds | (1 << 2);
     show(leds);
-    leds = leds & ~(1 << 0);   /* 0番目を消す */
+
+    leds = leds & ~(1 << 0);
     show(leds);
+
+    // ① 7番目のLEDを点ける
+    leds = leds | (1 << 7);
+    show(leds);
+
+    // ② 入力した番号のLEDを点ける
+    printf("点灯させるLED番号(0～7)=");
+    scanf("%d", &n);
+
+    if (n >= 0 && n <= 7)
+    {
+        leds = leds | (1 << n);
+        show(leds);
+
+        // ③ n番目のLEDを反転する
+        leds = leds ^ (1 << n);
+        show(leds);
+    }
+    else
+    {
+        printf("0～7の番号を入力してください。\n");
+    }
+
     return 0;
 }
