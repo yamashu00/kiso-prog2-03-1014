@@ -19,7 +19,7 @@ int main(void)
     printf("整数=");
     scanf("%d", &num);
 
-    inverse_num = 0;   /* ここを書き換える */
+    inverse_num = ~num + 1; //① 0と1を全部反転する(~ が「0と1を反転する」) → ② 1を足す
 
     printf("正負逆転した値は%dです。\n", inverse_num);
     return 0;

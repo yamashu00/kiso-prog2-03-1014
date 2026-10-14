@@ -12,10 +12,33 @@
 
 int main(void)
 {
-    int a = 0b00000011;   /* 10進数で3 */
+    int a = 0b00000101;   /* 10進数で3 */
 
-    printf("%d\n", a << 1);
+    printf("%d\n", a << 4);
     printf("%d\n", a << 2);
     printf("%d\n", a << 3);
     return 0;
 }
+
+/*
+予想👇
+a << 1 : 0000 0110 (10進数: 6)
+a << 2 : 0000 1100 (10進数: 12)
+a << 3 : 0001 1000 (10進数: 24)
+
+①80
+②👇
+#include <stdio.h>
+
+int main(void)
+{
+    int a;
+
+    printf("整数=");
+    scanf("%d", &a);
+
+    printf("8倍した値は%dです。\n", a << 3);
+
+    return 0;
+}
+*/
