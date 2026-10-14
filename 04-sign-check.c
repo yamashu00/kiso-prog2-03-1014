@@ -17,7 +17,7 @@ int main(void)
     printf("整数=");
     scanf("%hhd", &d);   /* %hhd は1バイトの整数（signed char）を読む書式 */
 
-    if ((d & 0b10000000) == 0) {
+    if ((d & 0b00000001) == 0) {
         printf("正の数です\n");
     } else {
         printf("負の数です\n");
