@@ -21,15 +21,32 @@ void show(unsigned char leds)
     printf("\n");
 }
 
+void switch_on(unsigned char *leds, int point){
+    *leds = *leds | (1 << point);
+}
+
+void switch_off(unsigned char *leds, int point){
+    *leds = *leds & ~(1 << point);
+}
+
 int main(void)
 {
     unsigned char leds = 0;
+    int point;
 
-    leds = leds | (1 << 0);    /* 0番目を点ける */
+    switch_on(&leds, 0);    /* 0番目を点ける */
     show(leds);
-    leds = leds | (1 << 2);    /* 2番目を点ける */
+    switch_on(&leds, 2);    /* 2番目を点ける */
     show(leds);
-    leds = leds & ~(1 << 0);   /* 0番目を消す */
+    switch_off(&leds, 0);   /* 0番目を消す */
     show(leds);
+    switch_on(&leds, 7);
+    show(leds);
+    scanf("%d", &point);
+    switch_on(&leds, point);
+    show(leds);
+    leds = leds ^ (1 << 3); //n=3
+    show(leds);
+    
     return 0;
 }
