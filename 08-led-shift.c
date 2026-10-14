@@ -31,5 +31,16 @@ int main(void)
     show(leds);
     leds = leds & ~(1 << 0);   /* 0番目を消す */
     show(leds);
+    leds = leds | (1 << 7);    /* 7番目を点ける */
+    show(leds);
+
+    int n;
+    printf("点灯するLED番号=");
+    if (scanf("%d", &n) == 1 && n >= 0 && n < 8) {
+        leds = leds | (1 << n);
+        show(leds);
+        leds = leds ^ (1 << n);
+        show(leds);
+    }
     return 0;
 }
