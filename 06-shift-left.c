@@ -17,5 +17,21 @@ int main(void)
     printf("%d\n", a << 1);
     printf("%d\n", a << 2);
     printf("%d\n", a << 3);
+
+    a = 5;
+    printf("%d\n", a << 4);
+
+    int num;
+    printf("整数=");
+    if (scanf("%d", &num) != 1) {
+        return 1;
+    }
+    long long magnitude = num;
+    if (magnitude < 0) {
+        magnitude = -magnitude;
+        printf("8倍した値は%lldです。\n", -(magnitude << 3));
+    } else {
+        printf("8倍した値は%lldです。\n", magnitude << 3);
+    }
     return 0;
 }

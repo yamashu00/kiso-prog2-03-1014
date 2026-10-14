@@ -11,7 +11,22 @@
 
 int main(void)
 {
-    int num = 0b00000011;
+    int num = 0b00001010;
     printf("%d\n", num);
+
+    unsigned int attendance;
+    printf("出席番号=");
+    if (scanf("%u", &attendance) != 1) {
+        return 1;
+    }
+    printf("2進数では0b");
+    unsigned int bit = 1;
+    while (bit <= attendance / 2) {
+        bit <<= 1;
+    }
+    for (; bit != 0; bit >>= 1) {
+        printf("%d", (attendance & bit) != 0);
+    }
+    printf("、10進数では%uです。\n", attendance);
     return 0;
 }

@@ -31,5 +31,25 @@ int main(void)
     show(leds);
     leds = leds & ~(1 << 0);   /* 0番目を消す */
     show(leds);
+
+    leds = leds | (1 << 7);
+    show(leds);
+
+    int n;
+    printf("点灯するLED番号（0〜7）=");
+    if (scanf("%d", &n) != 1 || n < 0 || n > 7) {
+        printf("0〜7の整数を入力してください。\n");
+        return 1;
+    }
+    leds = leds | (1 << n);
+    show(leds);
+
+    printf("反転するLED番号（0〜7）=");
+    if (scanf("%d", &n) != 1 || n < 0 || n > 7) {
+        printf("0〜7の整数を入力してください。\n");
+        return 1;
+    }
+    leds = leds ^ (1 << n);
+    show(leds);
     return 0;
 }

@@ -17,5 +17,14 @@ int main(void)
     int c = a & b;
 
     printf("%d\n", c);
+
+    a = 0b00001010;
+    b = 0b00001100;
+    c = a & b;
+    printf("%d\n", c);
+
+    a = 0b00000011;
+    c = ~a;
+    printf("%d\n", c);
     return 0;
 }

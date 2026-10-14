@@ -15,5 +15,12 @@ int main(void)
     int filter = 0b00001111;
 
     printf("%d\n", a & filter);   /* 2進数で0000 1100 */
+
+    filter = 0b11110000;
+    printf("%d\n", a & filter);
+
+    filter = 0b00000001;
+    printf("%d\n", a & filter);
+    printf("%s\n", (a & filter) ? "奇数です" : "偶数です");
     return 0;
 }

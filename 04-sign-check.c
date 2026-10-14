@@ -15,12 +15,19 @@ int main(void)
     signed char d;
 
     printf("整数=");
-    scanf("%hhd", &d);   /* %hhd は1バイトの整数（signed char）を読む書式 */
+    if (scanf("%hhd", &d) != 1) { /* %hhd は1バイトの整数（signed char）を読む書式 */
+        return 1;
+    }
 
     if ((d & 0b10000000) == 0) {
         printf("正の数です\n");
     } else {
         printf("負の数です\n");
+    }
+    if ((d & 0b00000001) == 0) {
+        printf("偶数です\n");
+    } else {
+        printf("奇数です\n");
     }
     return 0;
 }
